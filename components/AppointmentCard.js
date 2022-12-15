@@ -1,34 +1,31 @@
 import styled from "styled-components";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
-export default function Card({ date, name, text, clock, green }) {
+export default function AppointmentCard({ date, name, text, clock, green }) {
   return (
-    <CardWrapper>
+    <StyledAppointmentCard>
       <Green>{green}</Green>
       <Text>{text}</Text>
       <Name>{name}</Name>
       <AiOutlineClockCircle size="1rem" color="grey" />
       <Date>{date}</Date>
       <Clock>{clock}</Clock>
-    </CardWrapper>
+    </StyledAppointmentCard>
   );
 }
 
-const CardWrapper = styled.li`
+const StyledAppointmentCard = styled.li`
   display: grid;
   margin: 2px 5px 2px 5px;
+  padding: 10px;
   grid-template-columns: 1.8fr 2fr 5fr;
   grid-template-rows: 1fr 1fr;
-  /* grid-template-areas:
-    "a b c"
-    "d e f"; */
   align-content: space-between;
-  padding: 10px;
   background-color: white;
   border-bottom: 1.6px solid #dadada;
 `;
 
-const Name = styled.div`
+const Name = styled.p`
   font-size: 0.8em;
   float: right;
   margin-right: 0px;
@@ -36,7 +33,7 @@ const Name = styled.div`
   text-align: right;
 `;
 
-const Green = styled.div`
+const Green = styled.p`
   font-size: 0.8em;
   float: left;
   color: darkslategray;
@@ -49,7 +46,7 @@ const Green = styled.div`
   color: white;
 `;
 
-const Text = styled.div`
+const Text = styled.p`
   font-size: 0.8em;
   float: left;
   color: #dadada;
