@@ -3,8 +3,10 @@ import GlobalStyles from "../components/GlobalStyles";
 function MyApp({ Component, pageProps }) {
   return (
     <>
-      <GlobalStyles />
-      <Component {...pageProps} />
+      <main>
+        <GlobalStyles />
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
