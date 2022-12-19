@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import { AiOutlineClockCircle } from "react-icons/ai";
+import styled from "styled-components";
 
 export default function AppointmentCard({ date, name, text, clock, green }) {
   return (
@@ -16,52 +16,50 @@ export default function AppointmentCard({ date, name, text, clock, green }) {
 
 const StyledAppointmentCard = styled.li`
   display: grid;
-  margin: 2px 5px 2px 5px;
-  padding: 10px;
   grid-template-columns: 1.8fr 2fr 5fr;
   grid-template-rows: 1fr 1fr;
   align-content: space-between;
   background-color: white;
   border-bottom: 1.6px solid #dadada;
+  margin: 2px 10px 2px 0px;
+  padding: 1px;
 `;
 
 const Name = styled.p`
-  font-size: 0.8em;
+  color: var(--color-font);
   float: right;
-  margin-right: 0px;
-  color: #dadada;
+  font-size: 0.8em;
+  margin-right: 0;
   text-align: right;
 `;
 
 const Green = styled.p`
-  font-size: 0.8em;
-  float: left;
-  color: darkslategray;
-  text-align: left;
+  background-color: var(--color-background-object);
   border-radius: 10px;
+  color: white;
+  float: left;
+  font-size: 0.8em;
+  margin-right: 10px;
   padding: 0.2px;
   text-align: center;
-  margin-right: 10px;
-  background-color: #4cd964;
-  color: white;
 `;
 
 const Text = styled.p`
-  font-size: 0.8em;
+  color: var(--color-font);
   float: left;
-  color: #dadada;
+  font-size: 0.8em;
   text-align: left;
 `;
 
 const Date = styled.div`
-  font-size: 0.8em;
+  color: var(--color-font);
   float: left;
-  color: #dadada;
+  font-size: 0.8em;
 `;
 
 const Clock = styled.div`
-  font-size: 0.8em;
+  color: var(--color-font);
+  border-left: 0;
   float: left;
-  border-left: 0px;
-  color: #dadada;
+  font-size: 0.8em;
 `;

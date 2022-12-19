@@ -1,16 +1,22 @@
 import styled from "styled-components";
-// import { AppointmentCard } from "../components/AppointmentCard.js";
-import AppointmentCard from "../components/AppointmentCard.js";
+import AppointmentCard from "../components/Appointments/AppointmentCard.js";
 import { appointmentData } from "../lib/appointmentData.js";
+import { NavigationBar } from "../components/Footer/NavigationBar.js";
+import useLocalStorageState from "use-local-storage-state";
 
-export default function Homepage() {
+export default function AppointmentsPage() {
+  const [appointmentList, setAppointmentList] = useLocalStorageState(
+    "appointmentList",
+    { defaultValue: appointmentData }
+  );
+
   return (
     <>
       <Headline>Appointments</Headline>
 
       <BodyWrapper>
         <AppointmentGrid>
-          {appointmentData.map((appointment) => (
+          {appointmentList.map((appointment) => (
             <AppointmentCard
               key={appointment.id}
               name={appointment.name}
@@ -22,40 +28,34 @@ export default function Homepage() {
           ))}
         </AppointmentGrid>
       </BodyWrapper>
+
+      <NavigationBar />
     </>
   );
 }
 
 const Headline = styled.h1`
-  top: 15px;
   margin: 0;
-  height: 40px;
-  width: 100vw;
-  font-style: normal;
-  font-weight: 400;
   font-size: 17px;
-  justify-content: center;
-  display: flex;
-  position: fixed;
-  color: #030303;
+  color: var(--color-font-headline);
   font-family: Abel;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+  margin-top: 15px;
 `;
 
 const BodyWrapper = styled.section`
   display: grid;
   grid-template-rows: min-content auto 50px;
   height: inherit;
+  padding-top: 50px;
 `;
 
 const AppointmentGrid = styled.ul`
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  align-content: start;
-  margin: 0;
-  padding: 10px;
-  overflow-y: auto;
-  color: #8a8a8f;
-
-  margin-top: 40px;
+  color: var(--color-font);
 `;
