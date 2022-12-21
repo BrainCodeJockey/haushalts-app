@@ -1,40 +1,40 @@
 import styled from "styled-components";
-import AppointmentCard from "../components/Appointments/AppointmentCard.js";
-import { appointmentData } from "../lib/appointmentData.js";
-import { NavigationBar } from "../components/Footer/NavigationBar.js";
+import AppointmentCard from "../components/Appointments/AppointmentCard";
+import { appointmentData } from "../lib/appointmentData";
+import { NavigationBar } from "../components/Footer/NavigationBar";
 import useLocalStorageState from "use-local-storage-state";
+
+const DEFAULT_APPOINTMENT_LIST = { defaultValue: appointmentData };
 
 export default function AppointmentsPage() {
   const [appointmentList, setAppointmentList] = useLocalStorageState(
     "appointmentList",
-    { defaultValue: appointmentData }
+    DEFAULT_APPOINTMENT_LIST
   );
 
   return (
-    <>
-      <Headline>Appointments</Headline>
+    <StyledBody>
+      <StyledHeadline>Appointments</StyledHeadline>
 
-      <BodyWrapper>
-        <AppointmentGrid>
-          {appointmentList.map((appointment) => (
-            <AppointmentCard
-              key={appointment.id}
-              name={appointment.name}
-              green={appointment.green}
-              text={appointment.text}
-              date={appointment.date}
-              clock={appointment.clock}
-            />
-          ))}
-        </AppointmentGrid>
-      </BodyWrapper>
+      <StyledGrid>
+        {appointmentList.map(({ id, name, green, text, date, clock }) => (
+          <AppointmentCard
+            key={id}
+            name={name}
+            green={green}
+            text={text}
+            date={date}
+            clock={clock}
+          />
+        ))}
+      </StyledGrid>
 
       <NavigationBar />
-    </>
+    </StyledBody>
   );
 }
 
-const Headline = styled.h1`
+const StyledHeadline = styled.h1`
   margin: 0;
   font-size: 17px;
   color: var(--color-font-headline);
@@ -42,20 +42,25 @@ const Headline = styled.h1`
   position: fixed;
   width: 100%;
   text-align: center;
-  z-index: 1;
-  margin-top: 15px;
+  z-index: 100;
+  padding-top: 15px;
+  background-color: white;
+  height: 10vh;
 `;
 
-const BodyWrapper = styled.section`
-  display: grid;
-  grid-template-rows: min-content auto 50px;
+const StyledBody = styled.section`
+  display: flex;
+  flex-direction: column;
   height: inherit;
-  padding-top: 50px;
+  background-color: white;
+  height: 5vh;
 `;
 
-const AppointmentGrid = styled.ul`
+const StyledGrid = styled.ul`
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   color: var(--color-font);
+  height: 5vh;
+  padding-top: 10vh;
 `;

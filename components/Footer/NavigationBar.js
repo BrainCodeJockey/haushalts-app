@@ -8,23 +8,23 @@ import AddNewFilledImg from "../../assets/svgs/NavigationBar/AddNewFilled.svg";
 import AppointmentsImg from "../../assets/svgs/NavigationBar/Appointments.svg";
 import AppointmentsFilledImg from "../../assets/svgs/NavigationBar/AppointmentsFilled.svg";
 
-const StyledAddNew = styled(Image)``;
-const StyledAppointments = styled(Image)``;
-
-//Funktion
+const StyledImage = styled(Image)``;
 
 export function NavigationBar() {
   const { pathname } = useRouter();
+
   const navLinks = [
     {
       href: "/AddNewPage",
-      img: pathname === "/AddNew" ? AddNewFilledImg : AddNewImg,
+      img: pathname === "/AddNewPage" ? AddNewFilledImg : AddNewImg,
       alt: "AddNew Icon",
     },
     {
       href: "/AppointmentsPage",
       img:
-        pathname === "/Appointments" ? AppointmentsFilledImg : AppointmentsImg,
+        pathname === "/AppointmentsPage"
+          ? AppointmentsFilledImg
+          : AppointmentsImg,
       alt: "Appointments Icon",
     },
   ];
@@ -34,23 +34,7 @@ export function NavigationBar() {
       <NavList>
         {navLinks.map(({ href, img, alt }) => (
           <Link key={href} href={href}>
-            {pathname === href ? (
-              <StyledAppointments
-                src={img}
-                alt={alt}
-                width={60}
-                height={60}
-                priority
-              />
-            ) : (
-              <StyledAddNew
-                src={img}
-                alt={alt}
-                width={60}
-                height={60}
-                priority
-              />
-            )}
+            <StyledImage src={img} alt={alt} width={60} height={60} priority />
           </Link>
         ))}
       </NavList>
@@ -58,10 +42,12 @@ export function NavigationBar() {
   );
 }
 
-export const Navbar = styled.nav`
+const Navbar = styled.nav`
   position: fixed;
   bottom: 0;
   width: 100%;
+  z-index: 100;
+  background-color: white;
 `;
 
 const NavList = styled.ul`

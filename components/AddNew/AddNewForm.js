@@ -1,11 +1,5 @@
 import { nanoid } from "nanoid";
 import styled from "styled-components";
-// import format from "date-fns/format";
-
-//Symbol
-import { BsPlusCircleFill } from "react-icons/bs";
-
-// Funktion
 
 export default function AddNewForm({ onAddAppointment }) {
   function handleSubmit(event) {
@@ -15,56 +9,62 @@ export default function AddNewForm({ onAddAppointment }) {
     const text = form.text.value;
     const name = form.name.value;
     const date = form.date.value;
-    // const date = format(Date(form.date.value), "dd'.'MM'.'yyyy");
     const clock = form.clock.value;
 
-    const newAppointment = {
-      id: nanoid(),
-      text: text,
-      name: name,
-      date: date,
-      clock: clock,
-    };
+    if (confirm("Möchten sie einen neuen Termin hinzufügen?")) {
+      const newAppointment = {
+        id: nanoid(),
+        text,
+        name,
+        date,
+        clock,
+      };
 
-    onAddAppointment(newAppointment);
+      onAddAppointment(newAppointment);
 
-    form.reset();
+      form.reset();
+    }
   }
 
   return (
     <>
       <StyledEditForm onSubmit={handleSubmit}>
-        <InputWrapper>
-          <label htmlFor="text">
-            <ScreenReaderOnly>TEXT</ScreenReaderOnly>
-          </label>
-          <input placeholder={`TEXT`} name="text" id="text" />
+        <StyledInput>
+          <input
+            placeholder="Treppenhaus putzen..."
+            name="text"
+            id="text"
+            aria-label="Task"
+          />
 
-          <label htmlFor="name">
-            <ScreenReaderOnly>NAME</ScreenReaderOnly>
-          </label>
-          <input placeholder={`NAME`} name="name" id="name" />
+          <input
+            placeholder="Name eingeben..."
+            name="name"
+            id="name"
+            aria-label="Name"
+          />
 
-          <label htmlFor="date">
-            <ScreenReaderOnly>DATE</ScreenReaderOnly>
-          </label>
-          <input placeholder={`Date`} name="date" id="date" />
+          <input
+            placeholder="Date"
+            name="date"
+            type="date"
+            id="date"
+            aria-label="Date"
+          />
 
-          <label htmlFor="clock">
-            <ScreenReaderOnly>Clock</ScreenReaderOnly>
-          </label>
-          <input placeholder={`Clock`} name="clock" id="clock" />
-        </InputWrapper>
-
-        <StyledButton>
-          <BsPlusCircleFill aria-hidden="true" />
-        </StyledButton>
+          <input
+            placeholder="Time"
+            name="clock"
+            type="time"
+            id="clock"
+            aria-label="Time"
+          />
+        </StyledInput>
+        <StyledButton>Termin Hinzufügen</StyledButton>
       </StyledEditForm>
     </>
   );
 }
-
-//Styles
 
 const StyledEditForm = styled.form`
   display: grid;
@@ -74,23 +74,12 @@ const StyledEditForm = styled.form`
   text-align: center;
 `;
 
-const InputWrapper = styled.div`
+const StyledInput = styled.div`
   grid-template-columns: 1.8fr 2fr 5fr;
   grid-template-rows: 1fr 1fr;
   align-content: space-between;
   margin: 2px 5px 2px 5px;
   padding: 5px;
-`;
-
-const ScreenReaderOnly = styled.span`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border-width: 0;
 `;
 
 const StyledButton = styled.button`

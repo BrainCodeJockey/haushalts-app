@@ -4,12 +4,12 @@ import styled from "styled-components";
 export default function AppointmentCard({ date, name, text, clock, green }) {
   return (
     <StyledAppointmentCard>
-      <Green>{green}</Green>
-      <Text>{text}</Text>
-      <Name>{name}</Name>
+      <StyledGreen>{green}</StyledGreen>
+      <StyledText>{text}</StyledText>
+      <StyledName>{name}</StyledName>
       <AiOutlineClockCircle size="1rem" color="grey" />
-      <Date>{date}</Date>
-      <Clock>{clock}</Clock>
+      <StyledDate>{date}</StyledDate>
+      <StyledClock>{clock}</StyledClock>
     </StyledAppointmentCard>
   );
 }
@@ -25,7 +25,7 @@ const StyledAppointmentCard = styled.li`
   padding: 1px;
 `;
 
-const Name = styled.p`
+const StyledName = styled.p`
   color: var(--color-font);
   float: right;
   font-size: 0.8em;
@@ -33,7 +33,7 @@ const Name = styled.p`
   text-align: right;
 `;
 
-const Green = styled.p`
+const StyledGreen = styled.p`
   background-color: var(--color-background-object);
   border-radius: 10px;
   color: white;
@@ -44,20 +44,20 @@ const Green = styled.p`
   text-align: center;
 `;
 
-const Text = styled.p`
+const StyledText = styled.p`
   color: var(--color-font);
   float: left;
   font-size: 0.8em;
   text-align: left;
 `;
 
-const Date = styled.div`
+const StyledDate = styled.div`
   color: var(--color-font);
   float: left;
   font-size: 0.8em;
 `;
 
-const Clock = styled.div`
+const StyledClock = styled.div`
   color: var(--color-font);
   border-left: 0;
   float: left;
