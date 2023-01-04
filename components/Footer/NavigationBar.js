@@ -7,6 +7,8 @@ import AddNewImg from "../../assets/svgs/NavigationBar/AddNew.svg";
 import AddNewFilledImg from "../../assets/svgs/NavigationBar/AddNewFilled.svg";
 import AppointmentsImg from "../../assets/svgs/NavigationBar/Appointments.svg";
 import AppointmentsFilledImg from "../../assets/svgs/NavigationBar/AppointmentsFilled.svg";
+import HomeImg from "../../assets/svgs/NavigationBar/Home.svg";
+import HomeFilledImg from "../../assets/svgs/NavigationBar/HomeFilled.svg";
 
 const StyledImage = styled(Image)``;
 
@@ -14,6 +16,11 @@ export function NavigationBar() {
   const { pathname } = useRouter();
 
   const navLinks = [
+    {
+      href: "/",
+      img: pathname === "/" ? HomeFilledImg : HomeImg,
+      alt: "Home Icon",
+    },
     {
       href: "/AddNewPage",
       img: pathname === "/AddNewPage" ? AddNewFilledImg : AddNewImg,
