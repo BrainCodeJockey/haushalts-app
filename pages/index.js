@@ -1,5 +1,5 @@
-import Homepage from "./Appointments";
+import AppointmentsPage from "./AppointmentsPage";
 
 export default function Home() {
-  return <Homepage />;
+  return <AppointmentsPage />;
 }

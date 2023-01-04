@@ -1,7 +1,14 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyles = createGlobalStyle`
-        * {
+    :root {
+        --color-font: #dadada;
+        --color-font-headline: #030303;
+        --color-background-object: #4cd964;
+        --color-button: #0263F9;
+    }
+    
+    * {
         box-sizing: border-box;
     }
     
