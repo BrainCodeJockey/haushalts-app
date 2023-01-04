@@ -2,6 +2,8 @@ import styled from "styled-components";
 import { NavigationBar } from "../components/Footer/NavigationBar.js";
 import AddNewForm from "../components/AddNew/AddNewForm.js";
 import useLocalStorageState from "use-local-storage-state";
+import Image from "next/image";
+import ProfilImage from "../assets/svgs/Profil/ProfilImage.svg";
 
 export default function AddNewPage() {
   const [appointmentList, setAppointmentList] =
@@ -14,7 +16,12 @@ export default function AddNewPage() {
   return (
     <>
       <StyledHeadlineContainer>
-        <StyledProfileImage />
+        <StyledProfileImage
+          src={ProfilImage}
+          alt="Profil"
+          width={60}
+          height={60}
+        />
         <StyledHeadline>Hej Alex!</StyledHeadline>
       </StyledHeadlineContainer>
       <AddNewForm onAddAppointment={addAppointment} />
@@ -40,11 +47,8 @@ const StyledHeadline = styled.h1`
   margin-left: 100px;
 `;
 
-const StyledProfileImage = styled.div`
-  width: 60px;
-  height: 60px;
+const StyledProfileImage = styled(Image)`
   border-radius: 50%;
-  background-image: url("/assets/svgs/Profil/ProfilImage.svg");
   background-size: cover;
   background-position: center;
   background-color: grey;
