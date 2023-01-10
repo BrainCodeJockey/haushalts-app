@@ -1,5 +1,6 @@
 import { AiOutlineClockCircle } from "react-icons/ai";
 import styled from "styled-components";
+import format from "date-fns/format";
 
 export default function AppointmentCard({ date, name, text, clock, green }) {
   return (
@@ -8,7 +9,7 @@ export default function AppointmentCard({ date, name, text, clock, green }) {
       <StyledText>{text}</StyledText>
       <StyledName>{name}</StyledName>
       <AiOutlineClockCircle size="1rem" color="grey" />
-      <StyledDate>{date}</StyledDate>
+      <StyledDate>{format(new Date(date), "dd'.'MM'.'yyyy")}</StyledDate>
       <StyledClock>{clock}</StyledClock>
     </StyledAppointmentCard>
   );

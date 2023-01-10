@@ -31,7 +31,7 @@ export default function AddNewForm({ onAddAppointment }) {
       <StyledEditForm onSubmit={handleSubmit}>
         <StyledInput>
           <input
-            placeholder="Treppenhaus putzen..."
+            placeholder="was wird geputzt..."
             name="text"
             id="text"
             aria-label="Task"

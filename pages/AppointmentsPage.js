@@ -1,27 +1,18 @@
 import styled from "styled-components";
 import AppointmentCard from "../components/Appointments/AppointmentCard";
-import { appointmentData } from "../lib/appointmentData";
 import { NavigationBar } from "../components/Footer/NavigationBar";
-import useLocalStorageState from "use-local-storage-state";
 
-const DEFAULT_APPOINTMENT_LIST = { defaultValue: appointmentData };
-
-export default function AppointmentsPage() {
-  const [appointmentList, setAppointmentList] = useLocalStorageState(
-    "appointmentList",
-    DEFAULT_APPOINTMENT_LIST
-  );
-
+export default function AppointmentsPage({ appointmentList }) {
   return (
     <StyledBody>
       <StyledHeadline>Appointments</StyledHeadline>
 
       <StyledGrid>
-        {appointmentList.map(({ id, name, green, text, date, clock }) => (
+        {appointmentList.map(({ id, name, text, date, clock }) => (
           <AppointmentCard
             key={id}
             name={name}
-            green={green}
+            green="Putz"
             text={text}
             date={date}
             clock={clock}
