@@ -9,6 +9,8 @@ import AppointmentsImg from "../../assets/svgs/NavigationBar/Appointments.svg";
 import AppointmentsFilledImg from "../../assets/svgs/NavigationBar/AppointmentsFilled.svg";
 import HomeImg from "../../assets/svgs/NavigationBar/Home.svg";
 import HomeFilledImg from "../../assets/svgs/NavigationBar/HomeFilled.svg";
+import CalendarImg from "../../assets/svgs/NavigationBar/Calendar.svg";
+import CalendarFilledImg from "../../assets/svgs/NavigationBar/CalendarFilled.svg";
 
 const StyledImage = styled(Image)``;
 
@@ -21,11 +23,19 @@ export function NavigationBar() {
       img: pathname === "/" ? HomeFilledImg : HomeImg,
       alt: "Home Icon",
     },
+
+    {
+      href: "/CalendarPage",
+      img: pathname === "/CalendarPage" ? CalendarFilledImg : CalendarImg,
+      alt: "Calendar Icon",
+    },
+
     {
       href: "/AddNewPage",
       img: pathname === "/AddNewPage" ? AddNewFilledImg : AddNewImg,
       alt: "AddNew Icon",
     },
+
     {
       href: "/AppointmentsPage",
       img:

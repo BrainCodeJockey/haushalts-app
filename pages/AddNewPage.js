@@ -1,18 +1,10 @@
 import styled from "styled-components";
 import { NavigationBar } from "../components/Footer/NavigationBar.js";
 import AddNewForm from "../components/AddNew/AddNewForm.js";
-import useLocalStorageState from "use-local-storage-state";
 import Image from "next/image";
 import ProfilImage from "../assets/svgs/Profil/ProfilImage.svg";
 
-export default function AddNewPage() {
-  const [appointmentList, setAppointmentList] =
-    useLocalStorageState("appointmentList");
-
-  function addAppointment(newAppointment) {
-    setAppointmentList([newAppointment, ...appointmentList]);
-  }
-
+export default function AddNewPage({ appointmentList, onAddAppointment }) {
   return (
     <>
       <StyledHeadlineContainer>
@@ -24,7 +16,7 @@ export default function AddNewPage() {
         />
         <StyledHeadline>Hej Alex!</StyledHeadline>
       </StyledHeadlineContainer>
-      <AddNewForm onAddAppointment={addAppointment} />
+      <AddNewForm onAddAppointment={onAddAppointment} />
       <NavigationBar />
     </>
   );
