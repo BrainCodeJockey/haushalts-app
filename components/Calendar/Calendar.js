@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import styled from "styled-components";
+import format from "date-fns/format";
 
 export function CalendarFromReact({ appointmentList }) {
   const [date, setDate] = useState(new Date());
@@ -25,10 +26,7 @@ export function CalendarFromReact({ appointmentList }) {
   };
 
   const tileContent = ({ date }) => {
-    return isAppointmentOnDate(date) ? (
-      // <button style={{ backgroundColor: "green" }} />
-      <p>🧹</p>
-    ) : null;
+    return isAppointmentOnDate(date) ? <p>🧹</p> : null;
   };
 
   const selectedAppointments = filterAppointmentsByDate(appointmentList, date);
@@ -47,7 +45,9 @@ export function CalendarFromReact({ appointmentList }) {
             <div key={index}>
               <span>{appointment.name} </span>
               <span>{appointment.text} </span>
-              <span>{appointment.date}</span>
+              <span>
+                {format(new Date(appointment.date), "dd'.'MM'.'yyyy")}
+              </span>
             </div>
           ))
         ) : (
@@ -66,8 +66,6 @@ const StyledHeadline = styled.h2`
 `;
 
 const StyledAppointments = styled.span`
-  /* display: grid;
-  grid-template-columns: 1fr 1fr 1fr; */
   font-size: 1.1rem;
   text-align: center;
   position: relative;
@@ -122,5 +120,8 @@ const StyledCalendarContainer = styled.section`
     position: absolute;
     top: -10px;
     right: -6px;
+  }
+  .react-calender__day--highlighted {
+    background-color: #d93378;
   }
 `;
