@@ -4,7 +4,7 @@ import AddNewForm from "../components/AddNew/AddNewForm.js";
 import Image from "next/image";
 import ProfilImage from "../assets/svgs/Profil/ProfilImage.svg";
 
-export default function AddNewPage({ appointmentList, onAddAppointment }) {
+export default function AddNewPage({ onAddAppointment }) {
   return (
     <>
       <StyledHeadlineContainer>

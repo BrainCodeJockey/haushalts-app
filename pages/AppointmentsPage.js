@@ -2,7 +2,11 @@ import styled from "styled-components";
 import AppointmentCard from "../components/Appointments/AppointmentCard";
 import { NavigationBar } from "../components/Footer/NavigationBar";
 
-export default function AppointmentsPage({ appointmentList }) {
+export default function AppointmentsPage({
+  appointmentList,
+  handleRemoveAppointment,
+  onUpdateAppointmentList,
+}) {
   return (
     <StyledBody>
       <StyledHeadline>Appointments</StyledHeadline>
@@ -16,6 +20,10 @@ export default function AppointmentsPage({ appointmentList }) {
             text={text}
             date={date}
             clock={clock}
+            handleRemoveAppointment={handleRemoveAppointment}
+            id={id}
+            onUpdateAppointmentList={onUpdateAppointmentList}
+            appointmentList={appointmentList}
           />
         ))}
       </StyledGrid>

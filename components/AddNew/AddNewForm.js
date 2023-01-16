@@ -67,26 +67,37 @@ export default function AddNewForm({ onAddAppointment }) {
 }
 
 const StyledEditForm = styled.form`
+  width: 100%;
   display: grid;
   border-bottom: 1px solid #dadada;
-  margin: 2px 5px 2px 5px;
+  margin: 5px 5px 5px 5px;
   align-items: center;
   text-align: center;
+  justify-content: center;
+  align-content: center;
 `;
 
 const StyledInput = styled.div`
-  grid-template-columns: 1.8fr 2fr 5fr;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
+  grid-column-gap: 10px;
   align-content: space-between;
-  margin: 2px 5px 2px 5px;
+  margin: 2px 2px 2px 2px;
   padding: 5px;
+  width: 100%;
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
 `;
 
 const StyledButton = styled.button`
-  width: 90%;
+  width: 100%;
   background-color: var(--color-button);
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
   align-items: center;
   text-align: center;
   border: none;
