@@ -25,17 +25,8 @@ export function CalendarFromReact({ appointmentList }) {
     });
   };
 
-  // const tileContent = ({ date }) => {
-  //   return isAppointmentOnDate(date) ? (
-  //     <div className="highlighted-day"></div>
-  //   ) : // <p>🧹</p>
-  //   null;
-  // };
-
-  const tileContent = ({ date, view }) => {
-    if (isAppointmentOnDate(date)) {
-      return <div style={{ backgroundColor: "#green" }}></div>;
-    }
+  const tileContent = ({ date }) => {
+    return isAppointmentOnDate(date) ? <p>🧹</p> : null;
   };
 
   const selectedAppointments = filterAppointmentsByDate(appointmentList, date);
