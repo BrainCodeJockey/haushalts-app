@@ -13,7 +13,6 @@ export default function AppointmentCard({
   name,
   text,
   clock,
-  green,
   id,
   handleRemoveAppointment,
   onUpdateAppointmentList,
@@ -87,7 +86,7 @@ export default function AppointmentCard({
       ) : (
         <>
           <StyledForm>
-            <StyledGreen>{green}</StyledGreen>
+            <StyledGreen>Putz</StyledGreen>
             <StyledText>{text}</StyledText>
             <StyledName>{name}</StyledName>
             <AiOutlineClockCircle size="1rem" color="grey" />
