@@ -1,11 +1,9 @@
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
 import { useLocalStorage } from "../helpers/hooks";
-import { appointmentData } from "../lib/appointmentData.js";
 
 function MyApp({ Component, pageProps }) {
   const [appointmentList, setAppointmentList] = useLocalStorage(
     "appointmentList",
-    // appointmentData
     []
   );
 
