@@ -1,34 +1,65 @@
+import { useEffect, useState } from "react";
 import GlobalStyles from "../components/GlobalStyles/GlobalStyles";
-import { useLocalStorage } from "../helpers/hooks";
+import { getAppointment } from "../lib/fetch";
 
 function MyApp({ Component, pageProps }) {
-  const [appointmentList, setAppointmentList] = useLocalStorage(
-    "appointmentList",
-    []
-  );
+  const [appointmentList, setAppointmentList] = useState([]);
 
-  function handleAddAppointment(newAppointment) {
-    setAppointmentList([newAppointment, ...appointmentList]);
-  }
+  // METHOD "GET"
+  useEffect(() => {
+    async function fetchAppointment() {
+      const AppointmentsfromDataBase = await getAppointment();
+      setAppointmentList(AppointmentsfromDataBase);
+    }
 
-  function handleRemoveAppointment(id) {
-    const updatedAppointmentList = appointmentList.filter((appointment) => {
-      return appointment.id !== id;
+    fetchAppointment();
+  }, []);
+
+  // METHOD "POST"
+  async function handleAddAppointment(newAppointment) {
+    await fetch("/api/Appointment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newAppointment),
     });
-    setAppointmentList([...updatedAppointmentList]);
+
+    async function fetchAppointment() {
+      const AppointmentsfromDataBase = await getAppointment();
+      setAppointmentList(AppointmentsfromDataBase);
+    }
+
+    fetchAppointment();
+  }
+  // METHOD "DELETE"
+  async function handleRemoveAppointment(id) {
+    if (confirm("Sind sie sicher, den Termin zu löschen?")) {
+      await fetch("/api/Appointment/" + id, {
+        method: "DELETE",
+      });
+      async function fetchAppointment() {
+        const AppointmentsfromDataBase = await getAppointment();
+        setAppointmentList(AppointmentsfromDataBase);
+      }
+      fetchAppointment();
+    }
   }
 
-  function handleUpdateAppointment(editedAppointment) {
-    setAppointmentList(
-      appointmentList.map((Appointment) => {
-        if (Appointment.id === editedAppointment.id) {
-          return editedAppointment;
-        } else {
-          return Appointment;
-        }
-      })
-    );
-    setAppointmentList([...appointmentList]);
+  // Update Appointment
+  async function handleUpdateAppointment(editedAppointment, id) {
+    await fetch("/api/Appointment/" + id, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(editedAppointment),
+    });
+
+    async function fetchAppointment() {
+      const AppointmentsfromDataBase = await getAppointment();
+      setAppointmentList(AppointmentsfromDataBase);
+    }
+
+    fetchAppointment();
   }
 
   function handleUpdateAppointmentList(appointments) {
@@ -42,9 +73,8 @@ function MyApp({ Component, pageProps }) {
         <Component
           {...pageProps}
           onAddAppointment={handleAddAppointment}
-          handleUpdateAppointment={handleUpdateAppointment}
           handleRemoveAppointment={handleRemoveAppointment}
-          onUpdateAppointmentList={handleUpdateAppointmentList}
+          onUpdateAppointmentList={handleUpdateAppointment}
           appointmentList={appointmentList}
         />
       </main>
