@@ -15,13 +15,13 @@ export default function AppointmentsPage({
         {appointmentList.map(({ id, name, text, date, clock }) => (
           <AppointmentCard
             key={id}
+            id={id}
             name={name}
             green="Putz"
             text={text}
             date={date}
             clock={clock}
             handleRemoveAppointment={handleRemoveAppointment}
-            id={id}
             onUpdateAppointmentList={onUpdateAppointmentList}
             appointmentList={appointmentList}
           />

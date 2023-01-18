@@ -13,7 +13,6 @@ export default function AppointmentCard({
   name,
   text,
   clock,
-  green,
   id,
   handleRemoveAppointment,
   onUpdateAppointmentList,
@@ -29,11 +28,8 @@ export default function AppointmentCard({
   const handleEdit = () => setIsEditing(true);
   const handleSave = () => {
     setIsEditing(false);
-    const updatedAppointmentList = appointmentList.map((appointment) =>
-      appointment.id === id ? formData : appointment
-    );
 
-    onUpdateAppointmentList(updatedAppointmentList);
+    onUpdateAppointmentList(formData, id);
   };
 
   return (
@@ -87,7 +83,7 @@ export default function AppointmentCard({
       ) : (
         <>
           <StyledForm>
-            <StyledGreen>{green}</StyledGreen>
+            <StyledGreen>Putz</StyledGreen>
             <StyledText>{text}</StyledText>
             <StyledName>{name}</StyledName>
             <AiOutlineClockCircle size="1rem" color="grey" />
@@ -106,12 +102,12 @@ export default function AppointmentCard({
   );
 }
 
-const StyledAppointmentCard = styled.li`
+const StyledAppointmentCard = styled.div`
   display: inline;
   background-color: white;
 `;
 
-const StyledEditForm = styled.li`
+const StyledEditForm = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

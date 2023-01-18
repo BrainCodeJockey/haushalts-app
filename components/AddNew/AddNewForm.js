@@ -1,4 +1,3 @@
-import { nanoid } from "nanoid";
 import styled from "styled-components";
 
 export default function AddNewForm({ onAddAppointment }) {
@@ -13,7 +12,6 @@ export default function AddNewForm({ onAddAppointment }) {
 
     if (confirm("Möchten sie einen neuen Termin hinzufügen?")) {
       const newAppointment = {
-        id: nanoid(),
         text,
         name,
         date,
