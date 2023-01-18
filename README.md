@@ -14,7 +14,7 @@ Stay tuned to see the development within the next weeks.
 
 # Screenshots!
 
-![Haushalts-App_Overview]()
+![Haushalts-App_Overview](https://user-images.githubusercontent.com/63350892/213218278-4815f4bf-edc5-4144-9ed1-57ea9aee943e.png)
 
 # Tech Stack
 
