@@ -1,34 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Haushalts-App
 
-## Getting Started
+<- Easily manage your Treppenhaus und Müll. ->
 
-First, run the development server:
+With the app, users can manage their appointments. To control the cleaning. The project is written entirely in JavaScript, the data is stored in @MongoDB.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+This App is the capstone-project of my web development bootcamp @neuefische and is optimized for mobile usage only.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Stay tuned to see the development within the next weeks.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+# Demo
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+[Have a look at ConcertLife on Vercel](capstone-project-hirnstromwelle.vercel.app/)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Screenshots!
 
-## Learn More
+![Haushalts-App_Overview]()
 
-To learn more about Next.js, take a look at the following resources:
+# Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- React
+- React Hooks
+- React Router
+- PropTypes
+- Styled Components
+- Vercel
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Project setup
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Clone this repository.
+- Install all npm dependencies `npm install`
+- To run the app in development mode `npm run dev`,
+  then open http://localhost:3000 to view it in the browser
+- To run unit and component tests `npm test`
+- to create a build ready for deploying: `npm run build`
