@@ -10,7 +10,6 @@ const appointmentSchema = new Schema({
   clock: { type: String, required: true },
 });
 
-//Question wird in der Datenbank gespeichert und erlaubt uns die CRUD-Operationen
 const Appointment =
   mongoose.models.Appointment ||
   mongoose.model("Appointment", appointmentSchema);
