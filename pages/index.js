@@ -8,7 +8,7 @@ export default function Home() {
   return (
     <StyledContainer>
       <StyledHeadlineContainer>
-        <StyledHeadline>Hej Alex!</StyledHeadline>
+        <StyledHeadline>Hallo Wohngemeinschaft</StyledHeadline>
         <StyledProfileImage
           src={ProfilImage}
           alt="Profil"
@@ -41,10 +41,9 @@ const StyledHeadline = styled.h1`
   color: var(--color-font-headline);
   font-family: Abel;
   position: fixed;
-  width: 100%;
+  width: 90%;
   z-index: 1;
   margin-top: 15px;
-  margin-left: 20px;
   letter-spacing: 1.5px;
 `;
 
