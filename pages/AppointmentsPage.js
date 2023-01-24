@@ -60,6 +60,8 @@ const StyledGrid = styled.ul`
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   color: var(--color-font);
-  height: 5vh;
-  padding-top: 10vh;
+  height: 10vh;
+  bottom: 10vh;
+  margin-top: 10vh;
+  margin-bottom: 20vh;
 `;

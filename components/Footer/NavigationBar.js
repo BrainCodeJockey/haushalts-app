@@ -65,6 +65,7 @@ const Navbar = styled.nav`
   width: 100%;
   z-index: 100;
   background-color: white;
+  margin-top: 10px;
 `;
 
 const NavList = styled.ul`
@@ -72,7 +73,7 @@ const NavList = styled.ul`
   justify-content: space-around;
   align-items: center;
   list-style: none;
-  margin: 0px;
+  margin: 1px;
   padding: 25px;
   width: 100%;
   height: 5vh;

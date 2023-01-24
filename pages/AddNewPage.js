@@ -14,7 +14,7 @@ export default function AddNewPage({ onAddAppointment }) {
           width={60}
           height={60}
         />
-        <StyledHeadline>Hej Alex!</StyledHeadline>
+        <StyledHeadline>Hallo Wohngemeinschaft</StyledHeadline>
       </StyledHeadlineContainer>
       <AddNewForm onAddAppointment={onAddAppointment} />
       <NavigationBar />
